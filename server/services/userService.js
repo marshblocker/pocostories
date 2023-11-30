@@ -26,6 +26,19 @@ const userService = {
 			throw error;
 		}
 	},
+
+	getUserPasswordHash: async (username) => {
+		try {
+			let res = await pool.query(
+				"SELECT password FROM Users WHERE username = $1",
+				[username]
+			);
+
+			return res.rows[0].password;
+		} catch (error) {
+			throw error;
+		}
+	},
 };
 
 module.exports = userService;
