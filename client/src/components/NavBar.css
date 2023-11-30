@@ -1,0 +1,10 @@
+ol {
+    list-style-type: none;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+}
+
+li {
+    display: inline-block;
+    margin: 0 1rem;
+}
