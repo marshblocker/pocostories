@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import { registerUser } from '../services/user.service';
+import { registerUser } from '../services/userService';
 
 function ProcessRegister() {
     let [searchParams] = useSearchParams();
@@ -14,8 +14,13 @@ function ProcessRegister() {
     useEffect(() => {
         (async () => {
             try {
+                if (username == null || password == null || repeatPassword == null) {
+                    alert('Invalid user information.');
+                    navigate('/register');
+                }
+
                 if (password !== repeatPassword) {
-                    console.log('password is not same with repeat password.')
+                    alert('Password is not same with repeat password.');
                     navigate('/register');
                 }
 
