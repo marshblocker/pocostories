@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import { CurrentUserContext } from './contexts/context';
-import { basicAuthInCookie, getBasicAuthInCookie } from './services/authService';
+import authService from './services/authService';
 
 import Layout from './pages/Layout';
 import Home from './pages/Home';
@@ -15,13 +15,14 @@ import Logout from './pages/Logout';
 import Register from './pages/Register';
 import ProcessRegister from './pages/ProcessRegister';
 import Error from './pages/Error'
+import Story from './pages/Story';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');
 
   useEffect(() => {
-    if (basicAuthInCookie()) {
-      const username = getBasicAuthInCookie('username');
+    if (authService.basicAuthInCookie()) {
+      const username = authService.getBasicAuthInCookie('username');
       if (username != null) {
         setCurrentUser(username);
       }
@@ -38,6 +39,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
+              <Route path='story/:id' element={<Story />} />
               <Route path='user' element={<User />} />
               <Route path='settings' element={<Settings />} />
               <Route path='login' element={<Login />} />

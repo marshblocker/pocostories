@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import { loginUser } from "../services/userService";
-import { storeBasicAuthInCookie } from "../services/authService";
+import userService from "../services/userService";
+import authService from "../services/authService";
 
 function ProcessLogin({ setCurrentUser }) {
 	let [searchParams] = useSearchParams();
@@ -19,8 +19,8 @@ function ProcessLogin({ setCurrentUser }) {
 					navigate("/login");
 				}
 
-				let userInfo = await loginUser(username, password);
-				storeBasicAuthInCookie(userInfo.username, 4);
+				let userInfo = await userService.loginUser(username, password);
+				authService.storeBasicAuthInCookie(userInfo.username, 4);
 				setCurrentUser(username);
 				navigate("/");
 			} catch (error) {
