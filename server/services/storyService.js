@@ -50,7 +50,7 @@ const storyService = {
 				[storyId]
 			);
 
-            return res.rows[0];
+			return res.rows[0];
 		} catch (error) {
 			throw error;
 		}

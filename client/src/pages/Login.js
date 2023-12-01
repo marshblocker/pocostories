@@ -5,7 +5,6 @@ function Login() {
 	return (
 		<>
 			<h1>Login</h1>
-
 			<form action="/login/process">
 				<div className="username">
 					<label htmlFor="username-input"> Username:</label>
@@ -29,8 +28,8 @@ function Login() {
 
 				<button type="submit">Login</button>
 			</form>
-
-			Don't have an account yet? <Link to='/register'>Click here to register.</Link>
+			Don't have an account yet?{" "}
+			<Link to="/register">Click here to register.</Link>
 		</>
 	);
 }

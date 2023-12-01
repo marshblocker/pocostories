@@ -41,7 +41,7 @@ const userService = {
 			);
 
 			if (res.rows.length === 0) {
-				throw new Error('User not found.');
+				throw new Error("User not found.");
 			}
 
 			return res.rows[0].password;

@@ -26,7 +26,7 @@ function Login() {
 					/>
 				</div>
 
-                <div className="repeat-password">
+				<div className="repeat-password">
 					<label htmlFor="password-input"> Repeat Password:</label>
 					<input
 						type="password"
