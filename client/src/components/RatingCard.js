@@ -2,7 +2,7 @@ import React from "react";
 
 import utils from "../utils";
 
-function Rating({ rating, comment, username, created_at }) {
+function RatingCard({ rating, comment, username, created_at }) {
     return (
         <>
             <span><strong>{username}</strong> {rating}/5</span>
@@ -12,4 +12,4 @@ function Rating({ rating, comment, username, created_at }) {
     )
 }
 
-export default Rating;
+export default RatingCard;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import Rating from "../components/Rating";
+import RatingCard from "../components/RatingCard";
 import storyService from "../services/storyService";
 import ratingService from "../services/ratingService";
 import authService from "../services/authService";
@@ -132,7 +132,7 @@ function Story() {
 			)}
 			{ratings.length !== 0
 				? ratings.map((rating) => (
-						<Rating
+						<RatingCard
 							comment={rating.comment}
 							rating={rating.rating}
 							created_at={rating.created_at}
