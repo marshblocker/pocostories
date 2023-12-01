@@ -4,7 +4,7 @@ const ratingService = {
 	getRatings: async (storyId) => {
 		try {
 			let res = await pool.query(
-				"SELECT * FROM Ratings WHERE id = $1 ORDER BY created_at DESC",
+				"SELECT * FROM Ratings WHERE story_id = $1 ORDER BY created_at DESC",
 				[storyId]
 			);
 
