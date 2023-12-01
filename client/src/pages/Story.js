@@ -43,7 +43,6 @@ function Story() {
 				}
 
 				let retrievedRatings = await ratingService.getRatings(id);
-				console.log(retrievedRatings);
 				setRatings(retrievedRatings);
 			} catch (error) {
 				alert(error);
