@@ -73,6 +73,27 @@ const storyService = {
 			throw error;
 		}
 	},
+
+	updateRating: async (storyId) => {
+		try {
+			let res = await pool.query(
+				"SELECT AVG(rating) AS avg_rating, COUNT(rating) AS total_ratings FROM Stories WHERE storyId = $1",
+				[storyId]
+			);
+			let newAvgRating = res.rows[0].avg_rating;
+			let newTotalRatings = res.rows[0].total_ratings;
+
+			res = await pool.query(
+				"UPDATE Stories SET avg_rating = $1, total_ratings = $2 WHERE story_id = $3 RETURNING *",
+				[newAvgRating, newTotalRatings, storyId]
+			);
+
+			const updatedStory = res.rows[0];
+			return updatedStory;
+		} catch (error) {
+			throw error;
+		}
+	},
 };
 
 module.exports = storyService;
