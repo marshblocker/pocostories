@@ -6,15 +6,9 @@ const ratingController = {
 	getRatings: async (req, res) => {
 		try {
 			const storyId = req.params.story_id;
-			const offset = req.query["offset"];
-			const limit = req.query["limit"];
 
 			if (storyId == null) {
 				throw new Error("Empty storyId.");
-			}
-
-			if (offset == null || limit == null) {
-				throw new Error("Empty offset or limit.");
 			}
 
 			const exist = await storyService.checkStoryExist(storyId);
@@ -22,11 +16,7 @@ const ratingController = {
 				throw new Error("Story does not exist.");
 			}
 
-			const ratings = await ratingService.getRatings(
-				storyId,
-				offset,
-				limit
-			);
+			const ratings = await ratingService.getRatings(storyId);
 			return res.status(200).json(ratings);
 		} catch (error) {
 			res.status(500).send(error.message);
@@ -79,18 +69,18 @@ const ratingController = {
 				username,
 				storyId
 			);
-            console.log('newRatings', newRating);
+			console.log("newRatings", newRating);
 
-            const updatedUser = await userService.updateRating(username);
-            console.log('updatedUser', updatedUser);
+			const updatedUser = await userService.updateRating(username);
+			console.log("updatedUser", updatedUser);
 
-            const updatedStory = await storyService.updateRating(storyId);
-            console.log('updatedStory', updatedStory);
+			const updatedStory = await storyService.updateRating(storyId);
+			console.log("updatedStory", updatedStory);
 
-            return res.status(200).json(newRating);
+			return res.status(200).json(newRating);
 		} catch (error) {
-            res.status(500).send(error.message);
-        }
+			res.status(500).send(error.message);
+		}
 	},
 };
 

@@ -1,11 +1,11 @@
 const { pool } = require("../db/index");
 
 const ratingService = {
-	getRatings: async (storyId, offset, limit) => {
+	getRatings: async (storyId) => {
 		try {
 			let res = await pool.query(
-				"SELECT * FROM Ratings WHERE id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3",
-				[storyId, limit, offset]
+				"SELECT * FROM Ratings WHERE id = $1 ORDER BY created_at DESC",
+				[storyId]
 			);
 
 			return res.rows;
@@ -18,10 +18,10 @@ const ratingService = {
 		try {
 			let res = await pool.query(
 				"INSERT INTO Ratings (rating, comment, username, story_id) VALUES ($1, $2, $3, $4) RETURNING *",
-                [rating, comment, username, storyId]
+				[rating, comment, username, storyId]
 			);
 
-            return res.rows[0];
+			return res.rows[0];
 		} catch (error) {
 			throw error;
 		}
