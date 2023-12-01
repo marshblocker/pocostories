@@ -34,11 +34,7 @@ function ProcessRegister() {
 				console.log(newUser);
 				setIsRegisterSuccess(true);
 			} catch (error) {
-				if (error.response.data != null) {
-					alert(error.response.data);
-				} else {
-					alert(error);
-				}
+				alert(error)
 				navigate("/register");
 			}
 		})();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import userService from "../services/userService";
@@ -25,11 +25,7 @@ function ProcessLogin({ setCurrentUser }) {
 				setCurrentUser(username);
 				navigate("/");
 			} catch (error) {
-				if (error.response.data != null) {
-					alert(error.response.data);
-				} else {
-					alert(error);
-				}
+				alert(error)
 				navigate("/login");
 			}
 		})();
