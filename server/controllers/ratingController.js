@@ -71,7 +71,10 @@ const ratingController = {
 			);
 			console.log("newRatings", newRating);
 
-			const updatedUser = await userService.updateRating(username);
+			const story = await storyService.getStory(storyId);
+			const storyCreator = story.username;
+
+			const updatedUser = await userService.updateRating(storyCreator);
 			console.log("updatedUser", updatedUser);
 
 			const updatedStory = await storyService.updateRating(storyId);
