@@ -21,11 +21,13 @@ function ProcessRegister() {
 				) {
 					alert("Invalid user information.");
 					navigate("/register");
+					return;
 				}
 
 				if (password !== repeatPassword) {
 					alert("Password is not same with repeat password.");
 					navigate("/register");
+					return;
 				}
 
 				let newUser = await userService.registerUser(username, password);

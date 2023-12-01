@@ -30,10 +30,6 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(currentUser);
-  }, [currentUser]);
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <BrowserRouter>

@@ -17,6 +17,7 @@ function ProcessLogin({ setCurrentUser }) {
 				if (username == null || password == null) {
 					alert("Invalid credentials.");
 					navigate("/login");
+					return;
 				}
 
 				let userInfo = await userService.loginUser(username, password);
@@ -24,7 +25,11 @@ function ProcessLogin({ setCurrentUser }) {
 				setCurrentUser(username);
 				navigate("/");
 			} catch (error) {
-				alert(error.response.data);
+				if (error.response.data != null) {
+					alert(error.response.data);
+				} else {
+					alert(error);
+				}
 				navigate("/login");
 			}
 		})();
