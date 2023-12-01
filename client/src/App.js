@@ -16,6 +16,7 @@ import Register from './pages/Register';
 import ProcessRegister from './pages/ProcessRegister';
 import Error from './pages/Error'
 import Story from './pages/Story';
+import CreateStory from './pages/CreateStory';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');
@@ -39,6 +40,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
+              <Route path='create-story' element={<CreateStory />} />
               <Route path='story/:id' element={<Story />} />
               <Route path='user' element={<User />} />
               <Route path='settings' element={<Settings />} />

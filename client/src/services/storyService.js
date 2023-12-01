@@ -14,6 +14,25 @@ class StoryService {
 			throw error;
 		}
 	};
+
+	createStory = async (title, story) => {
+		try {
+			const username = authService.getBasicAuthInCookie("username");
+			if (username === null) {
+				throw new Error("Not logged in.");
+			}
+
+			let response = await axios.post(URL + "/stories", {
+				title: title,
+				story: story,
+				username: username,
+			});
+            let newStory = response.data;
+            return newStory;
+		} catch (error) {
+			throw error;
+		}
+	};
 }
 
 const storyService = new StoryService();

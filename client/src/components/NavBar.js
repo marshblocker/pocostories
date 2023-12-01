@@ -31,6 +31,9 @@ function NavBar() {
 							<Link to="/logout">Logout</Link>
 						</li>
 					)}
+					<li>
+						<Link to="/create-story">Create Story</Link>
+					</li>
 					{currentUser === "" ? "" : <li>{currentUser}</li>}
 				</ol>
 			</nav>
