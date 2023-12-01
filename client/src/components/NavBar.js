@@ -14,7 +14,7 @@ function NavBar() {
 			<nav>
 				<ol>
 					<li>
-						<Link to="/">Home</Link>
+						<Link to="/">Stories</Link>
 					</li>
 					<li>
 						<Link to="/user">User</Link>

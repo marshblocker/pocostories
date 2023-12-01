@@ -6,7 +6,6 @@ import { CurrentUserContext } from './contexts/context';
 import authService from './services/authService';
 
 import Layout from './pages/Layout';
-import Home from './pages/Home';
 import User from './pages/User';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
@@ -17,6 +16,7 @@ import ProcessRegister from './pages/ProcessRegister';
 import Error from './pages/Error'
 import Story from './pages/Story';
 import CreateStory from './pages/CreateStory';
+import Stories from './pages/Stories';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');
@@ -35,7 +35,7 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
+              <Route index element={<Stories />} />
               <Route path='create-story' element={<CreateStory />} />
               <Route path='story/:id' element={<Story />} />
               <Route path='user' element={<User />} />
