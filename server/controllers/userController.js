@@ -9,16 +9,16 @@ const userController = {
 			const password = userInfo.password;
 
 			if (username == null) {
-				throw new Error('empty username.');
+				throw new Error("empty username.");
 			}
 
 			if (password == null) {
-				throw new Error('empty password');
+				throw new Error("empty password");
 			}
 
 			let exist = await userService.checkUserExist(username);
 			if (exist) {
-				throw new Error('username already exists.');
+				throw new Error("username already exists.");
 			}
 
 			const passwordHash = await utils.hashPassword(password);
