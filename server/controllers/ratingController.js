@@ -23,6 +23,27 @@ const ratingController = {
 		}
 	},
 
+	getUserRating: async (req, res) => {
+		try {
+			const storyId = req.params.story_id;
+			const username = req.query.username;
+
+			if (storyId == null) {
+				throw new Error("Empty storyId.");
+			}
+
+			const exist = await storyService.checkStoryExist(storyId);
+			if (!exist) {
+				throw new Error("Story does not exist.");
+			}
+
+			const rating = await ratingService.getUserRating(storyId, username);
+			return res.status(200).json(rating);
+		} catch (error) {
+			res.status(500).send(error.message);
+		}
+	},
+
 	createRating: async (req, res) => {
 		try {
 			const rating = req.body.rating;

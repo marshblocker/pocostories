@@ -14,6 +14,19 @@ const ratingService = {
 		}
 	},
 
+	getUserRating: async (storyId, username) => {
+		try {
+			let res = await pool.query(
+				"SELECT * FROM Ratings WHERE story_id = $1 AND username = $2 ORDER BY created_at DESC",
+				[storyId, username]
+			);
+
+			return res.rows;
+		} catch (error) {
+			throw error;
+		}
+	},
+
 	createRating: async (rating, comment, username, storyId) => {
 		try {
 			let res = await pool.query(

@@ -13,7 +13,11 @@ router.get("/:story_id", async function (req, res, next) {
 });
 
 router.get("/:story_id/ratings", async function (req, res, next) {
-	await ratingController.getRatings(req, res);
+	if (req.query.username == null) {
+		await ratingController.getRatings(req, res);
+	} else {
+		await ratingController.getUserRating(req, res);
+	}
 })
 
 router.post("/", async function (req, res, next) {
