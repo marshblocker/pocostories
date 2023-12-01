@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var { pool } = require('../db/index');
 
 var userController = require('../controllers/userController');
 
