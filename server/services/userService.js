@@ -14,14 +14,20 @@ const userService = {
 		}
 	},
 
-	getUsersWithSameUsername: async (username) => {
+	checkUserExist: async (username) => {
 		try {
 			let res = await pool.query(
 				"SELECT * FROM Users WHERE username = $1",
 				[username]
 			);
 
-			return res.rows;
+			if (res.rows.length === 0) {
+				return false;
+			} else if (res.rows.length === 1) {
+				return true;
+			} else {
+				throw new Error("Found users with same username.");
+			}
 		} catch (error) {
 			throw error;
 		}

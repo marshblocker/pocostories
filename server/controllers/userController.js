@@ -16,9 +16,8 @@ const userController = {
 				throw new Error('empty password');
 			}
 
-			let sameUsernames = await userService.getUsersWithSameUsername(username);
-
-			if (sameUsernames.length > 0) {
+			let exist = await userService.checkUserExist(username);
+			if (exist) {
 				throw new Error('username already exists.');
 			}
 

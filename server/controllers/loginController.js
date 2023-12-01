@@ -12,9 +12,8 @@ const loginController = {
 				throw new Error('Invalid credentials.');
 			}
 
-			const sameUsernames = await userService.getUsersWithSameUsername(username);
-
-			if (sameUsernames.length === 0) {
+			const exist = await userService.checkUserExist(username);
+			if (!exist) {
 				throw new Error('User does not exist.');
 			}
 
