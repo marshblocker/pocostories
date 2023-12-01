@@ -8,8 +8,8 @@ class StoryService {
 	getStory = async (storyId) => {
 		try {
 			let response = await axios.get(URL + "/stories/" + storyId);
-			let data = response.data;
-			return data;
+			let story = response.data;
+			return story;
 		} catch (error) {
 			throw error;
 		}
