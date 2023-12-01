@@ -21,7 +21,7 @@ router.post("/", async function (req, res, next) {
 });
 
 router.post("/:story_id/ratings", async function (req, res, next) {
-	await storyController.createRating(req, res);
+	await ratingController.createRating(req, res);
 })
 
 router.delete("/:story_id", async function (req, res, next) {
