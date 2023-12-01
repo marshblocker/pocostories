@@ -1,11 +1,10 @@
 const { pool } = require("../db/index");
 
 const storyService = {
-	getStories: async (offset, limit) => {
+	getStories: async () => {
 		try {
 			let res = await pool.query(
-				"SELECT * FROM Stories ORDER BY total_ratings DESC, avg_rating DESC LIMIT $1 OFFSET $2",
-				[limit, offset]
+				"SELECT * FROM Stories ORDER BY total_ratings DESC, avg_rating DESC"
 			);
 
 			return res.rows;
