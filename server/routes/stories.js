@@ -18,3 +18,5 @@ router.post("/", async function (req, res, next) {
 router.delete("/:story_id", async function (req, res, next) {
 	await storyController.deleteStory(req, res);
 });
+
+module.exports = router;
