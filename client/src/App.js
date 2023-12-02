@@ -7,7 +7,6 @@ import authService from './services/authService';
 
 import Layout from './pages/Layout';
 import User from './pages/User';
-import Settings from './pages/Settings';
 import Login from './pages/Login';
 import ProcessLogin from './pages/ProcessLogin';
 import Logout from './pages/Logout';
@@ -39,7 +38,6 @@ function App() {
               <Route path='create-story' element={<CreateStory />} />
               <Route path='story/:id' element={<Story />} />
               <Route path='user' element={<User />} />
-              <Route path='settings' element={<Settings />} />
               <Route path='login' element={<Login />} />
               <Route path='login/process' element={<ProcessLogin setCurrentUser={setCurrentUser} />} />
               <Route path='logout' element={<Logout setCurrentUser={setCurrentUser} />}/>
