@@ -13,6 +13,8 @@ function Login() {
 						name="username"
 						id="username-input"
 						autoComplete="username"
+						maxLength={20}
+						required
 					/>
 				</div>
 
@@ -23,6 +25,8 @@ function Login() {
 						name="password"
 						id="password-input"
 						autoComplete="new-password"
+						maxLength={20}
+						required
 					/>
 				</div>
 
@@ -33,6 +37,8 @@ function Login() {
 						name="repeat-password"
 						id="repeat-password-input"
 						autoComplete="new-password"
+						maxLength={20}
+						required
 					/>
 				</div>
 

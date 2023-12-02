@@ -45,6 +45,8 @@ function CreateStory() {
 					id="story-input"
 					cols={30}
 					rows={10}
+					maxLength={300}
+					placeholder="Maximum of 300 characters only."
 					required
 				></textarea>
 			</div>
