@@ -18,7 +18,12 @@ Share short stories with others.
 
 ## Requirements to run
 This website was developed in Mac. It was not tested to be built on other OS.
-It requires Docker and Node to build.
+It requires Docker, Node, Postgresql to build. I downloaded Docker from its [website](https://docs.docker.com/desktop/install/mac-install/), and
+Node and Postgresql using MacOS package manager [brew](https://brew.sh/) using the commands:
+```
+> brew install node
+> brew install postgresql
+```
 
 ## How to run
 ```
