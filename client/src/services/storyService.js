@@ -25,6 +25,16 @@ class StoryService {
 		}
 	}
 
+	getUserStories = async (username) => {
+		try {
+			let response = await axios.get(URL + "/stories?username=" + username);
+			let stories = response.data;
+			return stories;
+		} catch (error) {
+			throw error;
+		}
+	}
+
 	createStory = async (title, story) => {
 		try {
 			const username = authService.getBasicAuthInCookie("username");

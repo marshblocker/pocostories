@@ -5,7 +5,11 @@ var storyController = require("../controllers/storyController");
 var ratingController = require("../controllers/ratingController");
 
 router.get("/", async function (req, res, next) {
-	await storyController.getStories(req, res);
+	if (req.query.username == null) {
+		await storyController.getStories(req, res);
+	} else {
+		await storyController.getUserStories(req, res);
+	}
 });
 
 router.get("/:story_id", async function (req, res, next) {

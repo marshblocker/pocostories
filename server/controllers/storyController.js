@@ -12,6 +12,26 @@ const storyController = {
 		}
 	},
 
+	getUserStories: async (req, res) => {
+		try {
+			const username = req.query.username;
+			if (username == null) {
+				throw new Error("Empty username");
+			}
+
+			const userExist = await userService.checkUserExist(username);
+			if (!userExist) {
+				throw new Error("User does not exist.");
+			}
+
+			const stories = await storyService.getUserStories(username);
+			return res.status(200).json(stories);
+		} catch (error) {
+			console.log(error);
+			res.status(500).send(error.message);
+		}
+	},
+
 	getStory: async (req, res) => {
 		try {
 			const storyId = req.params.story_id;

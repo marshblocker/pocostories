@@ -13,6 +13,19 @@ const storyService = {
 		}
 	},
 
+	getUserStories: async (username) => {
+		try {
+			let res = await pool.query(
+				"SELECT * FROM Stories WHERE username = $1 ORDER BY total_ratings DESC, avg_rating DESC",
+				[username]
+			);
+
+			return res.rows;
+		} catch (error) {
+			throw error;
+		}
+	},
+
 	getStory: async (storyId) => {
 		try {
 			let res = await pool.query("SELECT * FROM Stories WHERE id = $1", [
