@@ -88,7 +88,7 @@ function Story() {
 										key={rating.id}
 									/>
 							))
-							: <p>No ratings yet. Be the first to rate this pocostory.</p>}
+							: <p>No ratings yet.</p>}
 					</div>
 				</>
 			) : (

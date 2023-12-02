@@ -34,7 +34,6 @@ function ProcessLogin({ setCurrentUser }) {
 
 	return (
 		<>
-			""
 		</>
 	);
 }
