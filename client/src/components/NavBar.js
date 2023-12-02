@@ -16,25 +16,23 @@ function NavBar() {
 					<li>
 						<Link to="/">Stories</Link>
 					</li>
-					<li>
-						<Link to="/user">User</Link>
-					</li>
-					<li>
-						<Link to="/settings">Settings</Link>
-					</li>
 					{currentUser === "" ? (
 						<li>
 							<Link to="/login">Login</Link>
 						</li>
 					) : (
-						<li>
-							<Link to="/logout">Logout</Link>
-						</li>
+						<>
+							<li>
+								<Link to="/create-story">Create Story</Link>
+							</li>
+							<li>
+								<Link to={"/user/" + currentUser}>{currentUser}</Link>
+							</li>
+							<li>
+								<Link to="/logout">Logout</Link>
+							</li>
+						</>
 					)}
-					<li>
-						<Link to="/create-story">Create Story</Link>
-					</li>
-					{currentUser === "" ? "" : <li>{currentUser}</li>}
 				</ol>
 			</nav>
 		</>
