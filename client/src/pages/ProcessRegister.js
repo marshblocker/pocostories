@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import userService from "../services/userService";
+import handleError from "../error";
 
 function ProcessRegister() {
 	let [searchParams] = useSearchParams();
@@ -33,11 +34,7 @@ function ProcessRegister() {
 				let newUser = await userService.registerUser(username, password);
 				setIsRegisterSuccess(true);
 			} catch (error) {
-				if (error.response.data) {
-					alert(error.response.data);
-				} else {
-					alert(error)
-				}
+				handleError(error);
 				navigate("/register");
 			}
 		})();

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import storyService from "../services/storyService";
+import handleError from "../error";
 
 function CreateStory() {
 	const navigate = useNavigate();
@@ -23,11 +24,7 @@ function CreateStory() {
             const newStory = await storyService.createStory(title, story);
             navigate('/story/' + newStory.id);
 		} catch (error) {
-            if (error.response.data) {
-				alert(error.response.data);
-			} else {
-				alert(error)
-			}
+            handleError(error);
             navigate('/create-story');
         }
 	}

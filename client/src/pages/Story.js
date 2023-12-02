@@ -6,6 +6,7 @@ import storyService from "../services/storyService";
 import ratingService from "../services/ratingService";
 import authService from "../services/authService";
 import utils from "../utils";
+import handleError from "../error";
 
 function Story() {
 	const { id } = useParams();
@@ -45,13 +46,9 @@ function Story() {
 				let retrievedRatings = await ratingService.getRatings(id);
 				setRatings(retrievedRatings);
 			} catch (error) {
-				if (error.response.data) {
-					alert(error.response.data);
-				} else {
-					alert(error)
-				}
+				handleError(error);
 				navigate("/");
-            }
+			}
 		})();
 	}, []);
 

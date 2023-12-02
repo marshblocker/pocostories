@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 import userService from "../services/userService";
 import authService from "../services/authService";
+import handleError from "../error";
 
 function ProcessLogin({ setCurrentUser }) {
 	let [searchParams] = useSearchParams();
@@ -25,11 +26,7 @@ function ProcessLogin({ setCurrentUser }) {
 				setCurrentUser(username);
 				navigate("/");
 			} catch (error) {
-				if (error.response.data) {
-					alert(error.response.data);
-				} else {
-					alert(error)
-				}
+				handleError(error);
 				navigate("/login");
 			}
 		})();

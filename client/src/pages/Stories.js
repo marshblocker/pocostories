@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import StoryCard from "../components/StoryCard";
 import { useNavigate } from "react-router-dom";
 import storyService from "../services/storyService";
+import handleError from "../error";
 
 function Stories() {
 	const [stories, setStories] = useState([]);
@@ -14,11 +15,7 @@ function Stories() {
 				const retrievedStories = await storyService.getStories();
 				setStories(retrievedStories);
 			} catch (error) {
-				if (error.response.data) {
-					alert(error.response.data);
-				} else {
-					alert(error)
-				}
+				handleError(error);
 				navigate("/");
 			}
 		})();
