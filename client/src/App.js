@@ -37,7 +37,7 @@ function App() {
               <Route index element={<Stories />} />
               <Route path='create-story' element={<CreateStory />} />
               <Route path='story/:id' element={<Story />} />
-              <Route path='user' element={<User />} />
+              <Route path='user/:username' element={<User />} />
               <Route path='login' element={<Login />} />
               <Route path='login/process' element={<ProcessLogin setCurrentUser={setCurrentUser} />} />
               <Route path='logout' element={<Logout setCurrentUser={setCurrentUser} />}/>
