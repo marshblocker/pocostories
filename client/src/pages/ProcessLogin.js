@@ -25,7 +25,11 @@ function ProcessLogin({ setCurrentUser }) {
 				setCurrentUser(username);
 				navigate("/");
 			} catch (error) {
-				alert(error)
+				if (error.response.data) {
+					alert(error.response.data);
+				} else {
+					alert(error)
+				}
 				navigate("/login");
 			}
 		})();

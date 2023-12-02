@@ -14,7 +14,11 @@ function Stories() {
 				const retrievedStories = await storyService.getStories();
 				setStories(retrievedStories);
 			} catch (error) {
-				alert(error);
+				if (error.response.data) {
+					alert(error.response.data);
+				} else {
+					alert(error)
+				}
 				navigate("/");
 			}
 		})();

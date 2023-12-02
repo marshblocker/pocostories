@@ -45,7 +45,11 @@ function Story() {
 				let retrievedRatings = await ratingService.getRatings(id);
 				setRatings(retrievedRatings);
 			} catch (error) {
-				alert(error);
+				if (error.response.data) {
+					alert(error.response.data);
+				} else {
+					alert(error)
+				}
 				navigate("/");
             }
 		})();

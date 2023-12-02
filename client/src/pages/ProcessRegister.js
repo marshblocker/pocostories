@@ -31,10 +31,13 @@ function ProcessRegister() {
 				}
 
 				let newUser = await userService.registerUser(username, password);
-				console.log(newUser);
 				setIsRegisterSuccess(true);
 			} catch (error) {
-				alert(error)
+				if (error.response.data) {
+					alert(error.response.data);
+				} else {
+					alert(error)
+				}
 				navigate("/register");
 			}
 		})();

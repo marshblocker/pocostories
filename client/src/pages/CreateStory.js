@@ -23,7 +23,11 @@ function CreateStory() {
             const newStory = await storyService.createStory(title, story);
             navigate('/story/' + newStory.id);
 		} catch (error) {
-            alert(error)
+            if (error.response.data) {
+				alert(error.response.data);
+			} else {
+				alert(error)
+			}
             navigate('/create-story');
         }
 	}
