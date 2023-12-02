@@ -1,5 +1,5 @@
 const utils = {
-    prettifyDate(dateString) {
+    prettifyDate: (dateString) => {
         let date = new Date(dateString.replace(' ', 'T'));
         return date.toDateString();
     }
