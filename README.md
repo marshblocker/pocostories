@@ -24,7 +24,7 @@ Node and Postgresql using MacOS package manager [Homebrew](https://brew.sh/) usi
 > brew install node
 > brew install postgresql
 ```
-I use the postgres cli tool `pg_isready` in the healthcheck field of the postgres service in the Docker Compose file, so make sure after installing postgresql (I advise to use Homebrew for this) the command `pg_isready --version` will execute successfully, otherwise the Docker Compose file will not work.
+I use the postgres cli tool `pg_isready` in the healthcheck field of the postgres service in the Docker Compose file, so make sure after installing postgresql (I advise to use Homebrew for this), running the command `pg_isready --version` in the terminal will execute successfully, otherwise the Docker Compose file will not work.
 
 ## How to run
 ```
