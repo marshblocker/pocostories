@@ -76,7 +76,7 @@ const storyService = {
 	updateRating: async (storyId) => {
 		try {
 			let res = await pool.query(
-				"SELECT AVG(rating) AS avg_rating, COUNT(rating) AS total_ratings FROM Ratings WHERE story_id = $1",
+				"SELECT ROUND(AVG(rating)::numeric, 2) AS avg_rating, COUNT(rating) AS total_ratings FROM Ratings WHERE story_id = $1",
 				[storyId]
 			);
 			let newAvgRating = res.rows[0].avg_rating;

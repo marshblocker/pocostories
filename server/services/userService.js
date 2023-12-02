@@ -53,7 +53,7 @@ const userService = {
 	updateRating: async (username) => {
 		try {
 			let res = await pool.query(
-				`SELECT AVG(R.rating) AS avg_rating, COUNT(R.rating) AS total_ratings
+				`SELECT ROUND(AVG(R.rating)::numeric, 2) AS avg_rating, COUNT(R.rating) AS total_ratings
 				FROM Ratings R
 				JOIN Stories S ON R.story_id = S.id
 				WHERE S.username = $1
