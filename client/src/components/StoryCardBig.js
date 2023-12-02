@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Avatar from "boring-avatars";
+
+import "../styles/StoryCardBig.css"
 
 function StoryCardBig({ story }) {
 	return (
@@ -13,7 +16,8 @@ function StoryCardBig({ story }) {
 			</p>
 			<p>Published at: {story.createdAt}</p>
 			<hr />
-			<p>{story.story}</p>
+			<p id="story-text">{story.story}</p>
+			<hr />
 		</>
 	);
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import utils from "../utils";
+import "../styles/StoryCard.css";
 
 function StoryCard({
 	id,
@@ -13,7 +14,7 @@ function StoryCard({
 }) {
 	return (
 		<>
-			<div>
+			<div className="story-card">
 				<Link to={"/story/" + id}>
 					<button type="button">
 						<strong>{title}</strong>

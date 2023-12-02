@@ -1,0 +1,10 @@
+.RatingCard {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    border: 1px dashed gray;
+}
+
+span {
+    margin-left: 0.5rem;
+}

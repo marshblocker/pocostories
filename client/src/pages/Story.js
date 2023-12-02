@@ -9,6 +9,7 @@ import utils from "../utils";
 import handleError from "../error";
 import RatingForm from "../components/RatingForm";
 import StoryCardBig from "../components/StoryCardBig";
+import "../styles/Story.css";
 
 function Story() {
 	const { id } = useParams();
@@ -62,7 +63,7 @@ function Story() {
 	};
 
 	return (
-		<>
+		<div className="Story">
 			{story.title !== "" ? (
 				<>
 					<StoryCardBig story={story} />
@@ -75,22 +76,25 @@ function Story() {
 					) : (
 						""
 					)}
-					{ratings.length !== 0
-						? ratings.map((rating) => (
-								<RatingCard
-									comment={rating.comment}
-									rating={rating.rating}
-									created_at={rating.created_at}
-									username={rating.username}
-									key={rating.id}
-								/>
-						  ))
-						: ""}
+					<div className="Ratings">
+						<h2>Ratings</h2>
+						{ratings.length !== 0
+							? ratings.map((rating) => (
+									<RatingCard
+										comment={rating.comment}
+										rating={rating.rating}
+										created_at={rating.created_at}
+										username={rating.username}
+										key={rating.id}
+									/>
+							))
+							: <p>No ratings yet. Be the first to rate this pocostory.</p>}
+					</div>
 				</>
 			) : (
 				""
 			)}
-		</>
+		</div>
 	);
 }
 

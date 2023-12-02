@@ -41,17 +41,17 @@ function ProcessRegister() {
 	}, [navigate, password, repeatPassword, username]);
 
 	return (
-		<>
+		<div style={{margin: "1rem"}}>
 			{isRegisterSuccess ? (
 				<>
 					<p>Register success</p>
-					<Link to="/login">Login</Link>
+					<Link to="/login">Login</Link> {" "}
 					<Link to="/">Home</Link>
 				</>
 			) : (
 				""
 			)}
-		</>
+		</div>
 	);
 }
 

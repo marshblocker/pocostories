@@ -34,7 +34,7 @@ function ProcessLogin({ setCurrentUser }) {
 
 	return (
 		<>
-			<h1>Process Login</h1>
+			""
 		</>
 	);
 }

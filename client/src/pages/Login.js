@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 function Login() {
 	return (
-		<>
+		<div style={{margin: "1rem"}}>
 			<h1>Login</h1>
 			<form action="/login/process">
 				<div className="username">
 					<label htmlFor="username-input"> Username:</label>
+					{" "}
 					<input
 						type="text"
 						name="username"
@@ -18,6 +19,7 @@ function Login() {
 
 				<div className="password">
 					<label htmlFor="password-input"> Password:</label>
+					{" "}
 					<input
 						type="password"
 						name="password"
@@ -28,9 +30,10 @@ function Login() {
 
 				<button type="submit">Login</button>
 			</form>
+			<hr />
 			Don't have an account yet?{" "}
 			<Link to="/register">Click here to register.</Link>
-		</>
+		</div>
 	);
 }
 

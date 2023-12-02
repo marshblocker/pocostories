@@ -1,11 +1,12 @@
 import React from "react";
 import ratingService from "../services/ratingService";
+import "../styles/RatingForm.css";
 
 function RatingForm({ currentUser, story, storyId }) {
     function updateRatingValueIndicator(event) {
 		let indicator = document.getElementById('rating-value-indicator');
 		if (indicator !== null) {
-			indicator.textContent = event.target.value;
+			indicator.textContent = "Rating: " + event.target.value;
 		}
 	}
 
@@ -37,7 +38,20 @@ function RatingForm({ currentUser, story, storyId }) {
 	}
 
 	return (
-		<>
+		<div className="RatingForm">
+			<h2>Rate this pocostory</h2>
+			<div className="rating-area">
+				<input
+					type="range"
+					name="rating-area"
+					id="rating-area-input"
+					min={0}
+					max={5}
+					step={1}
+					onInput={updateRatingValueIndicator}
+				/>
+				<p id="rating-value-indicator">Rating: 5</p>
+			</div>
 			<textarea
 				name="comment-area"
 				id="comment-area-input"
@@ -45,21 +59,11 @@ function RatingForm({ currentUser, story, storyId }) {
 				rows={10}
 				placeholder="Write your comment here"
 			></textarea>
-			<label htmlFor="rating-area-input">Rating:</label>
-			<input
-				type="range"
-				name="rating-area"
-				id="rating-area-input"
-				min={0}
-				max={5}
-				step={1}
-				onInput={updateRatingValueIndicator}
-			/>
-			<p id="rating-value-indicator">5</p>
+			<br />
 			<button type="button" name="submit" onClick={postRating}>
 				Submit Rating
 			</button>
-		</>
+		</div>
 	);
 }
 

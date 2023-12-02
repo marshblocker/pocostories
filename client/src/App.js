@@ -30,24 +30,26 @@ function App() {
   }, []);
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Stories />} />
-              <Route path='create-story' element={<CreateStory />} />
-              <Route path='story/:id' element={<Story />} />
-              <Route path='user/:username' element={<User />} />
-              <Route path='login' element={<Login />} />
-              <Route path='login/process' element={<ProcessLogin setCurrentUser={setCurrentUser} />} />
-              <Route path='logout' element={<Logout setCurrentUser={setCurrentUser} />}/>
-              <Route path='register' element={<Register />} />
-              <Route path='register/process' element={<ProcessRegister />} />
-              <Route path='*' element={<Error />} />
-            </Route>
-        </Routes>
-      </BrowserRouter>
-    </CurrentUserContext.Provider>
+    <div className="App">
+      <CurrentUserContext.Provider value={currentUser}>
+        <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Stories />} />
+                <Route path='create-story' element={<CreateStory />} />
+                <Route path='story/:id' element={<Story />} />
+                <Route path='user/:username' element={<User />} />
+                <Route path='login' element={<Login />} />
+                <Route path='login/process' element={<ProcessLogin setCurrentUser={setCurrentUser} />} />
+                <Route path='logout' element={<Logout setCurrentUser={setCurrentUser} />}/>
+                <Route path='register' element={<Register />} />
+                <Route path='register/process' element={<ProcessRegister />} />
+                <Route path='*' element={<Error />} />
+              </Route>
+          </Routes>
+        </BrowserRouter>
+      </CurrentUserContext.Provider>
+    </div>
   );
 }
 

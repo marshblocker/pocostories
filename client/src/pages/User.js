@@ -37,7 +37,7 @@ function User() {
 	}, [username]);
 
 	return (
-		<>
+		<div style={{margin: "1rem"}}>
 			{user.username !== "" ? (
 				<>
 					<UserCardBig user={user} />
@@ -59,7 +59,7 @@ function User() {
 			) : (
 				""
 			)}
-		</>
+		</div>
 	);
 }
 

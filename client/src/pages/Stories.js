@@ -23,20 +23,24 @@ function Stories() {
 
 	return (
 		<>
-			<h1>Stories</h1>
-			{stories.length !== 0
-				? stories.map((story) => (
-						<StoryCard
-							avgRating={story.avg_rating}
-							createdAt={story.created_at}
-							id={story.id}
-							title={story.title}
-							totalRatings={story.total_ratings}
-							username={story.username}
-							key={story.id}
-						/>
-				  ))
-				: "No stories"}
+			<div style={{margin: "1rem;"}}>
+				<center>
+					<h1>all pocostories</h1>
+				</center>
+				{stories.length !== 0
+					? stories.map((story) => (
+							<StoryCard
+								avgRating={story.avg_rating}
+								createdAt={story.created_at}
+								id={story.id}
+								title={story.title}
+								totalRatings={story.total_ratings}
+								username={story.username}
+								key={story.id}
+							/>
+					))
+					: "No stories"}
+			</div>
 		</>
 	);
 }

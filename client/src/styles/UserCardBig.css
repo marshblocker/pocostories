@@ -1,0 +1,9 @@
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.profile > * {
+    margin-right: 1rem;
+}
