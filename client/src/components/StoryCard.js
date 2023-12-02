@@ -16,11 +16,14 @@ function StoryCard({
 			<div>
 				<Link to={"/story/" + id}>
 					<button type="button">
-						<span>
-							<strong>{title}</strong> {avgRating}/5 (
-							{totalRatings} total votes)
-						</span>
+						<strong>{title}</strong>
 						<p>By: {username}</p>
+						<p>
+							{totalRatings === 0 ? 
+								"(No rating)" : 
+								<>Rating: {avgRating}/5 ({totalRatings} total votes)</>
+							}
+						</p>
 						<p>Published at: {utils.prettifyDate(createdAt)}</p>
 					</button>
 				</Link>
