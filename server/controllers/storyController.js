@@ -7,6 +7,7 @@ const storyController = {
 			const stories = await storyService.getStories();
 			return res.status(200).json(stories);
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},
@@ -22,6 +23,7 @@ const storyController = {
 			const story = await storyService.getStory(storyId);
 			return res.status(200).json(story);
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},
@@ -56,6 +58,7 @@ const storyController = {
 			);
 			return res.status(200).json(newStory);
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},
@@ -76,6 +79,7 @@ const storyController = {
 			const deletedStory = await storyService.deleteStory(storyId);
 			return res.status(200).json(deletedStory);
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},

@@ -19,6 +19,7 @@ const ratingController = {
 			const ratings = await ratingService.getRatings(storyId);
 			return res.status(200).json(ratings);
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},
@@ -40,6 +41,7 @@ const ratingController = {
 			const rating = await ratingService.getUserRating(storyId, username);
 			return res.status(200).json(rating);
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},
@@ -103,6 +105,7 @@ const ratingController = {
 
 			return res.status(200).json(newRating);
 		} catch (error) {
+			console.log(error)
 			res.status(500).send(error.message);
 		}
 	},

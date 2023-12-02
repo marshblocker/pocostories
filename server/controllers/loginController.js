@@ -33,6 +33,7 @@ const loginController = {
 				.status(200)
 				.json({ username: username, password: password });
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},

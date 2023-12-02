@@ -26,6 +26,7 @@ const userController = {
 			let newUser = await userService.createUser(username, passwordHash);
 			return res.status(200).json(newUser);
 		} catch (error) {
+			console.log(error);
 			res.status(500).send(error.message);
 		}
 	},
