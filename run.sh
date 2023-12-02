@@ -1,4 +1,4 @@
 #! /bin/bash
 
-rm -rf db pgadmin && mkdir db pgadmin;
+rm -rf db && mkdir db;
 docker compose down --rmi all --volumes && docker compose up --build;
