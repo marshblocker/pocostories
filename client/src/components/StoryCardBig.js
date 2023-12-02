@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function StoryCardBig({ story, canDelete }) {
+function StoryCardBig({ story }) {
 	return (
 		<>
 			<h1>{story.title}</h1>
