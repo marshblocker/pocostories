@@ -74,6 +74,23 @@ const userService = {
 			throw error;
 		}
 	},
+
+	getUser: async (username) => {
+		try {
+			let res = await pool.query(
+				'SELECT * FROM Users WHERE username = $1',
+				[username]
+			);
+
+			if (res.rows.length === 0) {
+				throw new Error('No user found.')
+			}
+
+			return res.rows[0];
+		} catch (error) {
+			throw error;
+		}
+	}
 };
 
 module.exports = userService;

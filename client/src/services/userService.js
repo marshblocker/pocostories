@@ -32,6 +32,16 @@ class UserService {
             throw error;
         }
     };
+
+    getUser = async (userId) => {
+        try {
+            let response = await axios.get(URL + '/users/' + userId);
+            let user = response.data;
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 const userService = new UserService();
