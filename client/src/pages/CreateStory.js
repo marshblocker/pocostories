@@ -34,7 +34,7 @@ function CreateStory() {
 			<h1>create a pocostory</h1>
 			<div className="title">
 				<label htmlFor="title-input"> Title: </label>
-				<input type="text" name="title" id="title-input" required />
+				<input type="text" name="title" id="title-input" maxLength={50} required />
 			</div>
 
 			<div className="story">
