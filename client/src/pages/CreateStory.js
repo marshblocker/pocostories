@@ -31,7 +31,7 @@ function CreateStory() {
 
 	return (
 		<>
-			<h1>Create Story</h1>
+			<h1>create a pocostory</h1>
 			<div className="title">
 				<label htmlFor="title-input"> Title: </label>
 				<input type="text" name="title" id="title-input" required />
@@ -39,7 +39,6 @@ function CreateStory() {
 
 			<div className="story">
 				<label htmlFor="story-input"> Story: </label>
-				{/* <input type="text" name="story" id="story-input" required/> */}
 				<textarea
 					name="story"
 					id="story-input"
@@ -54,7 +53,11 @@ function CreateStory() {
 			<button type="button" name="submit" onClick={postStory}>
 				Post Story
 			</button>
-			<Link to="/">Cancel</Link>
+			<Link to="/">
+				<button type="button" name="cancel">
+					Cancel
+				</button>
+			</Link>
 		</>
 	);
 }
