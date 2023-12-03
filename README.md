@@ -18,16 +18,15 @@ Share short stories with others.
 
 ## Requirements to run
 This website was developed in Mac. It was not tested to be built on other OS.
-It requires Docker, Node, Postgresql to build. I downloaded Docker from its [website](https://docs.docker.com/desktop/install/mac-install/), and
-Node and Postgresql using MacOS package manager [Homebrew](https://brew.sh/) using the commands:
+It requires Docker and Postgresql to build. I downloaded Docker from its [website](https://docs.docker.com/desktop/install/mac-install/), and
+Postgresql using MacOS package manager [Homebrew](https://brew.sh/) using the command:
 ```
-> brew install node
 > brew install postgresql
 ```
-I use the postgres cli tool `pg_isready` in the healthcheck field of the postgres service in the Docker Compose file, so make sure after installing postgresql (I advise to use Homebrew for this), running the command `pg_isready --version` in the terminal will execute successfully, otherwise the Docker Compose file will not work. Also, if Docker
-exits with error saying `pocostories_db_c` is unhealthy, then it is likely a hardware issue (my machine could be
-faster than the machine it is being tested on) and so I would suggest to increase the `interval` and `retries` field
-of the `healthcheck` of `db` in the `docker-compose.yml`. Here is a [link](https://docs.docker.com/engine/reference/builder/#healthcheck) on the description of each `healthcheck` fields.
+I used the Postgres CLI tool `pg_isready` in the healthcheck field of the postgres service in the Docker Compose file, so make sure after installing postgresql (I advise using Homebrew for this), running the command `pg_isready --version` in the terminal will execute successfully, otherwise the Docker Compose file will not work. Also, if Docker
+exits with an error saying `pocostories_db_c` is unhealthy, it is likely a hardware issue (my machine could be
+faster than the machine it is being tested on) and so I would suggest increasing the `interval` and `retries` field
+of the `healthcheck` of `db` in the `docker-compose.yml`. Here is a [link](https://docs.docker.com/engine/reference/builder/#healthcheck) on each `healthcheck` field description.
 
 ## How to run
 ```
@@ -37,4 +36,4 @@ of the `healthcheck` of `db` in the `docker-compose.yml`. Here is a [link](https
 > ./run.sh
 ```
 
-Wait for `pocostories_server_c` to appear in the terminal before viewing the website in http://localhost:3000.
+Wait for `pocostories_server_c` to appear in the terminal before viewing the website at http://localhost:3000.
