@@ -24,7 +24,10 @@ Node and Postgresql using MacOS package manager [Homebrew](https://brew.sh/) usi
 > brew install node
 > brew install postgresql
 ```
-I use the postgres cli tool `pg_isready` in the healthcheck field of the postgres service in the Docker Compose file, so make sure after installing postgresql (I advise to use Homebrew for this), running the command `pg_isready --version` in the terminal will execute successfully, otherwise the Docker Compose file will not work.
+I use the postgres cli tool `pg_isready` in the healthcheck field of the postgres service in the Docker Compose file, so make sure after installing postgresql (I advise to use Homebrew for this), running the command `pg_isready --version` in the terminal will execute successfully, otherwise the Docker Compose file will not work. Also, if Docker
+exits with error saying `pocostories_db_c` is unhealthy, then it is likely a hardware issue (my machine could be
+faster than the machine it is being tested on) and so I would suggest to increase the `interval` and `retries` field
+of the `healthcheck` of `db` in the `docker-compose.yml`. Here is a [link](https://docs.docker.com/engine/reference/builder/#healthcheck) on the description of each `healthcheck` fields.
 
 ## How to run
 ```
@@ -34,4 +37,4 @@ I use the postgres cli tool `pg_isready` in the healthcheck field of the postgre
 > ./run.sh
 ```
 
-View the website in http://localhost:3000.
+Wait for `pocostories_server_c` to appear in the terminal before viewing the website in http://localhost:3000.

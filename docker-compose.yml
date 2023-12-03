@@ -26,12 +26,11 @@ services:
     volumes:
       - ./client:/app
       - /app/node_modules
-    # stdin_open: true
-    # tty: true
 
   db:
     image: postgres
     container_name: pocostories_db_c
+    restart: always
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: pocostories
@@ -41,6 +40,6 @@ services:
       - ./server/db/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d pocostories -U postgres"]
-      interval: 1s
-      timeout: 5s
-      retries: 10
+      interval: 30s
+      timeout: 10s
+      retries: 5
